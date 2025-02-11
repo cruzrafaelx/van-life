@@ -28,8 +28,19 @@ function Vans() {
 
   return (
     <div className='vans-container'>
+        <header className='vans-header'>
+            <h1>Explore our van options</h1>
+            <div className='vans-filters-container'>
+                <div className='van-filter'>Simple</div>
+                <div className='van-filter'>Luxury</div>
+                <div className='van-filter'>Rugged</div>
+                <div className='clr-filter'>Clear filter</div>
+            </div>
+        </header>
+        
         <div className='van-cards-container'>
-            
+        
+
         {   
             vans ? (
                 vans.map(van => {
