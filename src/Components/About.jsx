@@ -15,7 +15,7 @@ export default function About(){
 
         <div className="about-cta">
           <h1>Your destination is waiting. <br/>Your van is ready.</h1>
-          <button>Explore our vans</button>
+          <button className="about-cta-btn">Explore our vans</button>
         </div>
       </div>
     )
