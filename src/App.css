@@ -13,7 +13,7 @@ html, body{
   height: 100vh;
 }
 
-/* Header */
+/* Nav */
 
 header{
   display: flex;
@@ -21,7 +21,6 @@ header{
   align-items: center;
   background-color: #FFF7ED;
   padding: 2em;
-  
 }
 
 .logo{
@@ -30,9 +29,15 @@ header{
   color: #000000;
 }
 
+
 .links-right > *{
   font-weight: 600;
   color: #4D4D4D;
+}
+
+.links-right > *:hover{
+  color: #161616;
+  text-decoration: underline;
 }
 
 .links-right > *:first-child{
@@ -158,8 +163,6 @@ main{
   cursor: pointer;
 }
 
-
-
 /* Footer */
 
 footer{
@@ -168,4 +171,72 @@ footer{
   color: #AAAAAA;
   text-align: center;
   padding: 1em;
+}
+
+
+/* Vans */
+
+.vans-container{
+  flex: 1;
+  height: 100%;
+  background-color: #FFF7ED;
+}
+
+.van-cards-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+.van-card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #FFF7ED;
+}
+
+.van-img{
+  max-height: 280px;
+  border-radius: 8px;
+}
+
+.van-details{
+  font-family: "Inter";
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.van-price{
+  margin-bottom: 0;
+}
+
+.van-price-container > p{
+  margin-top: 0;
+  text-align: right;
+}
+
+.van-type{
+  padding: 0.5em;
+  margin-top: -1em;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #FFEAD0;
+  border-radius: 8px;
+  width: 40%;
+}
+
+.van-type.simple{
+  background-color: #E17654;
+}
+
+.van-type.luxury{
+  background-color: #161616;
+}
+
+.van-type.rugged{
+  background-color: #115E59;
+ 
 }
