@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 
 function Vans() {
@@ -40,29 +41,34 @@ function Vans() {
         
         <div className='van-cards-container'>
         
-
         {   
             vans ? (
                 vans.map(van => {
 
                     return(
-                    <div className='van-card' key={van.id}>
-                        <img className='van-img' 
-                            src={van.imageUrl}
-                            alt={`van ${van.name}`}
-                        >
-                        </img>
-    
-                        <div className='van-details'>
-                            <h2 className='van-name'>{van.name}</h2>
-                            <div className='van-price-container'>
-                                <h2 className='van-price'>€{van.price}</h2>
-                                <p>/day</p>
+                    
+                        <div className='van-card' key={van.id}>
+                            <Link className='van-link' 
+                                  to={`/vans/${van.id}`}
+                                  aria-label={`View details for ${van.name}, priced at €${van.price} per day.`}
+                            >
+                            <img className='van-img' 
+                                src={van.imageUrl}
+                                alt={`van ${van.name}`}
+                            >
+                            </img>
+        
+                            <div className='van-details'>
+                                <h2 className='van-name'>{van.name}</h2>
+                                <div className='van-price-container'>
+                                    <h2 className='van-price'>€{van.price}</h2>
+                                    <p>/day</p>
+                                </div>
                             </div>
+        
+                            <div className={`van-type ${van.type}`}>{van.type}</div>
+                            </Link>
                         </div>
-    
-                        <div className={`van-type ${van.type}`}>{van.type}</div>
-                    </div>
                     )
                 })
             ) :

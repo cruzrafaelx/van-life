@@ -223,6 +223,11 @@ footer{
   font-weight: 500;
 }
 
+.van-link{
+  text-decoration: none;
+  color: #161616;
+}
+
 .van-cards-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
