@@ -2,7 +2,10 @@ import React from 'react'
 
 function Income() {
   return (
-    <div>Income</div>
+    <section className='host-container'> 
+         <div>Income</div>
+    </section>
+   
   )
 }
 
