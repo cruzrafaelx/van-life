@@ -26,18 +26,16 @@ header{
   text-decoration: none;
 }
 
-.header-link{
+header > a{
   font-weight: 600;
   color: #4D4D4D;
   text-decoration: none;
   padding: 0.3rem 1rem;
 }
 
-.header-link:last-child{
-  padding-right: 0;
-}
 
-.header-link:hover{
+header > a:hover,
+nav > a:hover{
   color: #161616;
   text-decoration: underline;
 }
@@ -393,7 +391,14 @@ footer{
   
 }
 
-.host-nav > a:hover{
+/* .host-nav > a:hover{
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 500;
+} */
+
+nav a.active-link,
+header a.active-link{
   color: #161616;
   text-decoration: underline;
   font-weight: 500;
