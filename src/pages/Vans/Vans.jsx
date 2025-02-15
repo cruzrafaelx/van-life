@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 
 function Vans() {
 
   const [vans, setVans] = useState([])
+  const [searchParams, setSearchParams] = useSearchParams()
+  const typeFilter = searchParams.get("type")
+  console.log(typeFilter)
 
   useEffect(()=>{
 
@@ -27,6 +30,11 @@ function Vans() {
 
   console.log(vans)
 
+  //Filter the vans if there is a type in the URL query, otherwise return vans
+  const filteredVans = typeFilter ? 
+                       vans.filter(van => van.type === typeFilter.toLowerCase()) :
+                       vans
+
   return (
     <div className='vans-container'>
         <header className='vans-header'>
@@ -40,13 +48,11 @@ function Vans() {
         </header>
         
         <div className='van-cards-container'>
-        
+
         {   
             vans ? (
-                vans.map(van => {
-
+                filteredVans.map(van => {
                     return(
-                    
                         <div className='van-card' key={van.id}>
                             <Link className='van-link' 
                                   to={`/vans/${van.id}`}
