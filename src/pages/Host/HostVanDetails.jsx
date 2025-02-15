@@ -62,7 +62,7 @@ function HostVanDetails() {
       <div className='host-van-details-container'>
         {vans && renderVanDetails}
         <VansLayout/>
-        <Outlet />
+        <Outlet context={vans ? vans[0] : null} />
       </div>
       
     </section>
