@@ -7,6 +7,7 @@ function Vans() {
 
   const [vans, setVans] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
+
   const typeFilter = searchParams.get("type")
   console.log(typeFilter)
 
@@ -40,10 +41,31 @@ function Vans() {
         <header className='vans-header'>
             <h1>Explore our van options</h1>
             <div className='vans-filters-container'>
-                <div className='van-filter'>Simple</div>
-                <div className='van-filter'>Luxury</div>
-                <div className='van-filter'>Rugged</div>
-                <div className='clr-filter'>Clear filter</div>
+                <button 
+                    className='van-filter simple' 
+                    onClick={()=>setSearchParams({type: "simple"})}
+                    >Simple
+                </button>
+
+                <button 
+                    className='van-filter luxury' 
+                    onClick={()=>setSearchParams({type: "luxury"})}
+                    >Luxury
+                </button>
+
+                <button 
+                    className='van-filter rugged' 
+                    onClick={()=>setSearchParams({type: "rugged"})}
+                    >Rugged
+                </button>
+                {typeFilter ? (
+                    <button 
+                        className='clr-filter'
+                        onClick={()=>setSearchParams({})}
+                        >Clear filter
+                    </button>
+                 ) : null}
+                
             </div>
         </header>
         
