@@ -33,7 +33,7 @@ function VanDetails() {
     van ? (
         <section>
             <div className='van-details-container'>
-                <Link className='van-details-back-link' to={"/vans"}>
+                <Link className='van-details-back-link' relative={"path"} to={".."}>
                     <div className='van-details-back'>
                         <IoIosArrowRoundBack />
                         <p>Back to all vans</p>

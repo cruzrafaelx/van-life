@@ -66,7 +66,8 @@ function Vans() {
                                 </div>
                             </div>
         
-                            <div className={`van-type ${van.type}`}>{van.type}</div>
+                            <div className={`van-type ${van.type}`}>
+                                {van.type[0].toUpperCase() + van.type.slice(1)}</div>
                             </Link>
                         </div>
                     )
