@@ -1,11 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { IoIosArrowRoundBack  } from "react-icons/io";
 
 function VanDetails() {  
 
   const params = useParams()
+  const location = useLocation()
+  const search = location.state?.search || ""
+  const type = location.state?.type || "all"
+ 
   const [van, setVan] = useState(null)
 
   useEffect(()=>{
@@ -33,10 +37,12 @@ function VanDetails() {
     van ? (
         <section>
             <div className='van-details-container'>
-                <Link className='van-details-back-link' relative={"path"} to={".."}>
+                <Link className='van-details-back-link' 
+                      relative={"path"} 
+                      to={search !== null ? `..?${search}` : ".."}>
                     <div className='van-details-back'>
                         <IoIosArrowRoundBack />
-                        <p>Back to all vans</p>
+                        <p>{`Back to ${type} vans`}</p>
                     </div>
                 </Link>
                 <img className='van-details-img' src={van.imageUrl}/>

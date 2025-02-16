@@ -14,6 +14,7 @@ import Reviews from './pages/Host/Reviews';
 import VansDetailsPhotos from './pages/HostVanDetails/VansDetailsPhotos';
 import VansDetailsPricing from './pages/HostVanDetails/VansDetailsPricing';
 import VansDetailsSub from './pages/HostVanDetails/VansDetailsSub';
+import NotFound from './pages/NotFound';
 import "./server"
 
 
@@ -39,6 +40,7 @@ function App() {
                 <Route path='vansdetailsphotos' element={<VansDetailsPhotos/>}></Route>
               </Route>
             </Route>
+            <Route path='*' element={<NotFound/>}></Route>
           </Route>
         </Routes>
       </main>

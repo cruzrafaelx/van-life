@@ -9,6 +9,14 @@ html, body{
   background-color: #FFF7ED;
 }
 
+/* main{
+  height: 100%;
+}
+
+#root{
+  height: 100vh;
+} */
+
 /* Nav */
 
 header{
@@ -212,6 +220,21 @@ footer{
   cursor: pointer;
 }
 
+.vans-filters-container > .van-filter.simple.selected{
+  background-color: #E17654;
+  color: #FFEAD0;
+}
+
+.vans-filters-container > .van-filter.luxury.selected{
+  background-color: #161616;
+  color: #FFEAD0;
+}
+
+.vans-filters-container > .van-filter.rugged.selected{
+  background-color: #115E59;
+  color: #FFEAD0;
+}
+
 .vans-filters-container > .van-filter.simple:hover{
   background-color: #E17654;
   color: #FFEAD0;
@@ -276,8 +299,6 @@ footer{
   text-align: start;
 }
 
-
-
 .van-price{
   margin-bottom: 0;
 }
@@ -311,6 +332,7 @@ footer{
 
 }
 
+
 /* Van Details */
 
 .van-details-container{
@@ -332,8 +354,6 @@ footer{
   margin-bottom: 2rem;
 }
 
-
-
 .van-details-img{
  width: 100%;
  border-radius: 8px;
@@ -349,7 +369,6 @@ footer{
   max-width: 25%;
 }
 
-
 .van-details-name{
   font-size: 2em;
   margin: 0.3em 0 0 0;
@@ -360,7 +379,6 @@ footer{
   justify-content: center;
   align-items: center;
 }
-
 
 .van-details-price-container > p{
   font-size: 1.2em;
@@ -418,10 +436,6 @@ header a.active-link{
 
 /* Host Vans */
 
-/* .host-van-container{
-  display: flex;
-  flex-direction: column;
-} */
 .host-container{
   margin-bottom: 3rem;
 }
@@ -441,7 +455,6 @@ header a.active-link{
   gap: 1rem;
   width: 100%;  
 }
-
 
 .host-van-card > img{
   width: 100px;
@@ -465,7 +478,6 @@ header a.active-link{
   color: #4D4D4D;
   font-weight: 500;
 }
-
 
 /* Host Van Details */
 
@@ -548,4 +560,42 @@ header a.active-link{
   width: 120px;
   border-radius: 5px;
 
+}
+
+
+/* Not Found */
+.not-found-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  padding: 0 2em;
+}
+
+.not-found-container > a{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.return-home-btn{
+  padding: 1.2em ;
+  margin-top: 2em;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  background-color: #161616;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* Loading and Error */
+
+.loading,
+.error{
+  margin: auto;
+  text-align: center;
 }
