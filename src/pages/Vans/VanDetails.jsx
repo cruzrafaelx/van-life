@@ -32,11 +32,11 @@ function VanDetails() {
     },[params.id])
     
     if(loading){
-        return <h1 className='loading'>Loading van...</h1>
-    }
-
+        return <h1 aria-live='polite' className='loading'>Loading vans...</h1>
+      }
+    
     if(error){
-        return <h1 className='error'>{error.message || 'An error occurred while loading vans'}</h1>
+    return <h1 aria-live='assertive' className='error'>{error.message || 'An error occurred while loading vans'}</h1>
     }
    
   return (

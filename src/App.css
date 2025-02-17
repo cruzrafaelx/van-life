@@ -22,7 +22,6 @@ html, body{
 header{
   display: flex;
   align-items: center;
-  
   padding: 2em;
 }
 
@@ -46,6 +45,11 @@ header > a:hover,
 nav > a:hover{
   color: red;
   text-decoration: underline;
+}
+
+.login{
+  margin-top: 0.25em;
+  font-size: 1.1rem;
 }
 
 /* .about, .host{
@@ -599,3 +603,82 @@ header a.active-link{
   margin: auto;
   text-align: center;
 }
+
+/* Login */
+
+.login-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 2em 2em;
+}
+
+.login-container > h1{
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.login-container > h3{
+  color: red;
+  margin-bottom: 0;
+}
+
+.login-container > p{
+  margin-top: 2.2em;
+  text-align: center;
+  font-weight: 400;
+}
+.create{
+  font-weight: 600;
+  color: #FF8C38;
+  cursor: pointer;
+}
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.email-input,
+.password-input{
+  display: block;
+  width: 70%;
+  max-width: 700px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 0.6em;
+  color: #4D4D4D;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+}
+
+.email-input{
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.password-input{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.submit-btn{
+  width: 70%;
+  max-width: 700px;
+  min-width: 400px;
+  margin: 1.5em auto 0;
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background-color: #FF8C38;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
