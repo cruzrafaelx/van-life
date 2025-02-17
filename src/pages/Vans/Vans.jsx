@@ -16,14 +16,13 @@ function Vans() {
   useEffect(()=>{
 
     async function fetchVans(){
-        setLoading(true)
         try{
+            setLoading(true)
             const data = await getVans()
             setVans(data)
         } catch(err){
             console.error("error: ", err)
             setError(err)
-            setVans([])
         } finally{
             setLoading(false)
         }

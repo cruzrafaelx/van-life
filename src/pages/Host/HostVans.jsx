@@ -1,30 +1,31 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { getHostVans } from '../../api'
 
 function HostVans() {
 
-
   const [vans, setVans] = useState(null)
-    
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
   useEffect(()=>{
-      
-      async function fetchHostVans(){
-          try{
-              const res = await fetch("/api/host/vans")
-              if(!res.ok) throw new Error("HTTP Error!", res.status)
-              const data = await res.json()
-              setVans(data.vans)
-          }
-          
-          catch(error){
-              console.error("Error!") 
-          }
+    async function fetchHostVans(){
+      setLoading(true)
+      try{
+        const data = await getHostVans()
+        console.log(data)
+        setVans(data.vans)
+      } catch(err){
+        console.error(err)
+        setError(err)
+      } finally{
+        setLoading(false)
       }
-      
-      fetchHostVans()
-     
+    }
+    fetchHostVans()
   },[])
+  
   
   useEffect(()=>{
        console.log(vans)
@@ -46,6 +47,13 @@ function HostVans() {
     )
   })
 
+  if(loading){
+    return <h1 className='loading'>Loading vans...</h1>
+  }
+
+  if(error){
+    return <h1 className='error'>{error.message || 'An error occurred while loading vans'}</h1>
+  }
   
   return (
     <section className='host-container'> 

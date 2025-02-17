@@ -3,37 +3,39 @@ import {Outlet, Link, useParams} from 'react-router-dom'
 import { useState, useEffect} from 'react';
 import { IoIosArrowRoundBack  } from "react-icons/io";
 import VansLayout from '../../components/VansLayout'
+import { getHostVans } from '../../api';
 
 
 function HostVanDetails() {
 
   const {id} = useParams()
   const [vans, setVans] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
       
+
     useEffect(()=>{
-        
-        async function fetchHostVans(){
-            try{
-                const res = await fetch(`/api/host/vans/${id}`)
-                if(!res.ok) throw new Error("HTTP Error!", res.status)
-                const data = await res.json()
-                setVans(data.vans)
-            }
-            
-            catch(error){
-                console.error("Error!") 
-            }
+      async function fetchHostVansId(){
+        setLoading(true)
+        try{
+          const data = await getHostVans(id)
+          console.log(data)
+          setVans(data.vans)
+        } catch(err){
+          console.error(err)
+          setError(err)
+        } finally{
+          setLoading(false)
         }
-        
-        fetchHostVans()
-       
-    },[])
-    
+      }
+      fetchHostVansId()
+    },[id])
+   
     useEffect(()=>{
          console.log(vans)
     },[vans])
 
-
+ 
     const renderVanDetails = vans && vans.map(van => {
       return(
         <div className='host-van-details-card'>
@@ -49,6 +51,13 @@ function HostVanDetails() {
       )
     })
 
+    if(loading){
+      return <h1 className='loading'>Loading van...</h1>
+    }
+  
+    if(error){
+      return <h1 className='error'>{error.message || 'An error occurred while loading vans'}</h1>
+    }
 
   return (
     <section className='host-container'>
