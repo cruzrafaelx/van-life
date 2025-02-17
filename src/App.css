@@ -617,13 +617,12 @@ header a.active-link{
 }
 
 .login-container > h1{
-  margin-bottom: 1em;
-  text-align: center;
+  margin-bottom: 0;
 }
 
 .login-container > h3{
   color: red;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .login-container > p{
@@ -657,6 +656,7 @@ form{
 }
 
 .email-input{
+  margin-top: 2em;
   border-bottom: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -680,5 +680,9 @@ form{
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.submit-btn:disabled{
+  cursor: not-allowed
 }
 
