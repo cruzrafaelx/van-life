@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useLocation } from 'react-router-dom'
 import { getVans } from '../../api'
 
 
@@ -12,6 +12,8 @@ function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()
   const typeFilter = searchParams.get("type")
 
+  const location = useLocation()
+  console.log(location.pathname)
   
   useEffect(()=>{
 

@@ -1,9 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { MdLogin } from "react-icons/md";
+import { CiLogout } from "react-icons/ci";
 
 
 function Header() {
+
+  function handleLogout(){
+    localStorage.removeItem("loggedin")
+    console.log(localStorage.getItem("loggedin"))
+  }
+
+  console.log(localStorage.getItem("loggedin"))
   return (
     <header>
         <NavLink 
@@ -29,6 +37,10 @@ function Header() {
         <NavLink  
           className="login"
           to="/login"><MdLogin/>
+        </NavLink>
+        
+        <NavLink  className="logout" onClick={handleLogout} to={"/"}>
+          <CiLogout />
         </NavLink>
       </header>
   )

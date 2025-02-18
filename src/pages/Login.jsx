@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { replace, useLocation, useNavigate } from 'react-router-dom'
 import { loginUser } from '../api'
 
 function Login() {
@@ -9,14 +9,21 @@ function Login() {
   const [status, setStatus] = useState("idle")
   const [error, setError] = useState(null)
 
+  //useNavigate automatically redirects you to a page after a condition has been satisfied
+  const navigate = useNavigate()
+  
+  //useLocation lets you access the passed state from the Navigate component used in the parent component. 
   const location = useLocation()
   const message = location.state?.message || ""
+  const prevLocation = location.state?.location.pathname
+  console.log(prevLocation)
 
   async function fetchUserData(){
     try{
       const data = await loginUser(loginDetails)
-      console.log(data)
       setError(null)
+      localStorage.setItem("loggedin", true)
+      navigate(prevLocation, {replace: true})
     } 
       catch(err){
       setError(err)
@@ -30,7 +37,6 @@ function Login() {
     e.preventDefault()
     setStatus("submitting")
     fetchUserData()
-    // setError(null)
   }
   
   function handleOnChange(e){
